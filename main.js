@@ -27,10 +27,20 @@ function playRound(playerSelection, computerSelection){
     console.log("It's a Tie")
 }
 
-const playerSelection = "Paper"
-const computerSelection = getComputerChoice()
-console.log("Player Choice", playerSelection)
-console.log("Computer Choice", computerSelection)
+function game(){
+    for(let i=1;i<=5;i++){
+        console.log(`ROUND ${i}`)
+        const playerSelection = prompt("Enter your choice")
+        const computerSelection = getComputerChoice()
+        console.log("Player Choice", playerSelection)
+        console.log("Computer Choice", computerSelection)
 
-playRound(playerSelection,computerSelection)
+        playRound(playerSelection,computerSelection)
+
+    }
+}
+
+game()
+
+
 
