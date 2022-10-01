@@ -12,7 +12,7 @@ function playRound(playerSelection, computerSelection){
     (playerSelection==="Paper" && computerSelection==="Rock") ||
     (playerSelection==="Scissors" && computerSelection==="Paper")) {
 
-        console.log("Player Wins")
+        console.log(`Player Wins !! ${playerSelection} beats ${computerSelection}`)
     }
 
     else if(
@@ -20,7 +20,7 @@ function playRound(playerSelection, computerSelection){
     (computerSelection==="Paper" && playerSelection==="Rock") ||
     (computerSelection==="Scissors" && playerSelection==="Paper") 
     ){
-        console.log("Computer Wins")
+        console.log(`Computer Wins !! ${computerSelection} beats ${playerSelection}`)
     }
 
     else if(playerSelection === computerSelection)
