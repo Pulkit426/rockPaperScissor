@@ -27,20 +27,13 @@ function playRound(playerSelection, computerSelection){
     console.log("It's a Tie")
 }
 
-function game(){
-    for(let i=1;i<=5;i++){
-        console.log(`ROUND ${i}`)
-        const playerSelection = prompt("Enter your choice")
-        const computerSelection = getComputerChoice()
-        console.log("Player Choice", playerSelection)
-        console.log("Computer Choice", computerSelection)
+const rockButton = document.querySelector('.rock')
+const paperButton = document.querySelector('.paper')
+const scissorsButton = document.querySelector('.scissors')
 
-        playRound(playerSelection,computerSelection)
-
-    }
-}
-
-game()
-
+console.log(rockButton,paperButton,scissorsButton)
+rockButton.addEventListener('click', () => playRound("Rock", getComputerChoice()))
+paperButton.addEventListener('click', () => playRound("Paper", getComputerChoice()))
+scissorsButton.addEventListener('click', () => playRound("Scissors", getComputerChoice()))
 
 
