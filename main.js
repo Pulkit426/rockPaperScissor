@@ -1,3 +1,6 @@
+let playerCurrentScore = 0
+let computerCurrentScore = 0
+
 function getComputerChoice () {
     const choices = ["Rock", "Paper", "Scissors"]
     const randomIndex =  Math.floor(Math.random()*3) 
@@ -7,10 +10,19 @@ function getComputerChoice () {
 }
 
 function playRound(playerSelection, computerSelection){
+    playerSelection =playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
+    playerSign.textContent = getSign(playerSelection)
+    computerSign.textContent = getSign(computerSelection)
+
+
     if(
     (playerSelection=== "Rock" && computerSelection==="Scissors") || 
     (playerSelection==="Paper" && computerSelection==="Rock") ||
     (playerSelection==="Scissors" && computerSelection==="Paper")) {
+        playerCurrentScore+=1
+        playerScoreCount.textContent = playerCurrentScore
+
+        scoreInfo.textContent = `Player Wins !! ${playerSelection} beats ${computerSelection}`
 
         console.log(`Player Wins !! ${playerSelection} beats ${computerSelection}`)
     }
@@ -20,27 +32,61 @@ function playRound(playerSelection, computerSelection){
     (computerSelection==="Paper" && playerSelection==="Rock") ||
     (computerSelection==="Scissors" && playerSelection==="Paper") 
     ){
+        computerCurrentScore+=1
+        computerScoreCount.textContent = computerCurrentScore
+
+        scoreInfo.textContent = `Computer Wins !! ${computerSelection} beats ${playerSelection}`
         console.log(`Computer Wins !! ${computerSelection} beats ${playerSelection}`)
     }
 
-    else if(playerSelection === computerSelection)
-    console.log("It's a Tie")
-}
+    else if(playerSelection === computerSelection){
+        scoreInfo.textContent = "It's a Tie"
+        console.log("It's a Tie")
 
-function game(){
-    for(let i=1;i<=5;i++){
-        console.log(`ROUND ${i}`)
-        const playerSelection = prompt("Enter your choice")
-        const computerSelection = getComputerChoice()
-        console.log("Player Choice", playerSelection)
-        console.log("Computer Choice", computerSelection)
+    }
 
-        playRound(playerSelection,computerSelection)
-
+    if((playerCurrentScore===5) || (computerCurrentScore===5)){
+        const winner = playerCurrentScore > computerCurrentScore ? "You" : "Computer"
+        setTimeout(() => {
+            alert(`Game Over !! ${winner} won `)
+            resetGame()
+        }, 500)
     }
 }
 
-game()
+function getSign(choice) {
 
+    switch(choice){
+        case "Rock": return "✊"
+        break
+        case "Paper": return "✋"
+        break
+        case "Scissors": return "✌️"
+        break
+        default: return      
+    }
 
+}
+
+function resetGame(){
+playerSign.textContent = "?"
+computerSign.textContent ="?"
+playerScoreCount.textContent = "0"
+computerScoreCount.textContent ="0"
+playerCurrentScore =0
+computerCurrentScore =0
+scoreInfo.textContent = ""
+}
+
+const buttons = document.querySelectorAll('div>button')
+buttons.forEach(button => button.addEventListener('click', () => playRound(`${button.className}`, getComputerChoice())))
+
+const playerSign = document.querySelector('#playerSign')
+const computerSign = document.querySelector('#computerSign')
+console.log(playerSign, computerSign)
+
+const playerScoreCount = document.querySelector('#playerScoreCount')
+const computerScoreCount = document.querySelector('#computerScoreCount')
+const scoreInfo = document.querySelector('.score-info')
+const winnerInfo = document.querySelector('.winner-info')
 
