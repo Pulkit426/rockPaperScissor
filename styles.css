@@ -29,7 +29,6 @@ body{
 .info{
     font-size: 24px;
     font-weight: 700;
-    margin: 30px;
     padding: 10px;
     text-align: center;
     color: lightsalmon;
@@ -38,21 +37,21 @@ body{
 .score-info{
     font-size: 24px;
     font-weight: 700;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     padding: 10px;
 }
 
 .score-container{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     margin-bottom: 50px;
 }
 
 .player-score ,
 .computer-score{
-    gap: 10px;
-    height: 100px;
-    width: 100px;
+    gap: 50px;
+    height: 160px;
+    width: 160px;
     text-align: center;
     font-weight: 800;
 }
@@ -61,13 +60,30 @@ body{
     font-size: 72px;
 }
 
+.score{
+    font-size: 22px;
+}
+
+.buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:30px;
+    margin-bottom: 50px;
+}
+
 .rock ,
 .paper,
 .scissors{
-    width: 100px;
-    height: 100px;
-    font-size: 48px;
+    width: 160px;
+    height: 160px;
+    font-size: 80px;
     border-radius: 10px;
+}
+
+button:hover{
+    background-color: #4a4f57;
+    cursor: pointer;
 }
 
 .footer{
