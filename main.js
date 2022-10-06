@@ -75,6 +75,7 @@ playerScoreCount.textContent = "0"
 computerScoreCount.textContent ="0"
 playerCurrentScore =0
 computerCurrentScore =0
+scoreInfo.textContent = ""
 }
 
 const buttons = document.querySelectorAll('div>button')
