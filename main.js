@@ -7,6 +7,8 @@ function getComputerChoice () {
 }
 
 function playRound(playerSelection, computerSelection){
+    playerSelection =playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
+    
     if(
     (playerSelection=== "Rock" && computerSelection==="Scissors") || 
     (playerSelection==="Paper" && computerSelection==="Rock") ||
@@ -27,13 +29,5 @@ function playRound(playerSelection, computerSelection){
     console.log("It's a Tie")
 }
 
-const rockButton = document.querySelector('.rock')
-const paperButton = document.querySelector('.paper')
-const scissorsButton = document.querySelector('.scissors')
-
-console.log(rockButton,paperButton,scissorsButton)
-rockButton.addEventListener('click', () => playRound("Rock", getComputerChoice()))
-paperButton.addEventListener('click', () => playRound("Paper", getComputerChoice()))
-scissorsButton.addEventListener('click', () => playRound("Scissors", getComputerChoice()))
-
-
+const buttons = document.querySelectorAll('div>button')
+buttons.forEach(button => button.addEventListener('click', () => playRound(`${button.className}`, getComputerChoice())))
