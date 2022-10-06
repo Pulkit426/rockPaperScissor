@@ -69,3 +69,9 @@ body{
     font-size: 48px;
     border-radius: 10px;
 }
+
+.footer{
+    background-color: #487579;
+    padding: 20px  10px;
+    text-align: center;
+}
