@@ -8,7 +8,10 @@ function getComputerChoice () {
 
 function playRound(playerSelection, computerSelection){
     playerSelection =playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
-    
+    playerSign.textContent = getSign(playerSelection)
+    computerSign.textContent = getSign(computerSelection)
+
+
     if(
     (playerSelection=== "Rock" && computerSelection==="Scissors") || 
     (playerSelection==="Paper" && computerSelection==="Rock") ||
@@ -29,5 +32,22 @@ function playRound(playerSelection, computerSelection){
     console.log("It's a Tie")
 }
 
+function getSign(choice) {
+
+    switch(choice){
+        case "Rock": return "✊"
+        break
+        case "Paper": return "✋"
+        break
+        case "Scissors": return "✌️"
+        break
+        default: return      
+    }
+
+}
 const buttons = document.querySelectorAll('div>button')
 buttons.forEach(button => button.addEventListener('click', () => playRound(`${button.className}`, getComputerChoice())))
+
+const playerSign = document.querySelector('#playerSign')
+const computerSign = document.querySelector('#computerSign')
+console.log(playerSign, computerSign)
