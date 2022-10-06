@@ -22,6 +22,8 @@ function playRound(playerSelection, computerSelection){
         playerCurrentScore+=1
         playerScoreCount.textContent = playerCurrentScore
 
+        scoreInfo.textContent = `Player Wins !! ${playerSelection} beats ${computerSelection}`
+
         console.log(`Player Wins !! ${playerSelection} beats ${computerSelection}`)
     }
 
@@ -32,11 +34,17 @@ function playRound(playerSelection, computerSelection){
     ){
         computerCurrentScore+=1
         computerScoreCount.textContent = computerCurrentScore
+
+        scoreInfo.textContent = `Computer Wins !! ${computerSelection} beats ${playerSelection}`
         console.log(`Computer Wins !! ${computerSelection} beats ${playerSelection}`)
     }
 
-    else if(playerSelection === computerSelection)
-    console.log("It's a Tie")
+    else if(playerSelection === computerSelection){
+        scoreInfo.textContent = "It's a Tie"
+        console.log("It's a Tie")
+
+    }
+    
 }
 
 function getSign(choice) {
@@ -61,5 +69,5 @@ console.log(playerSign, computerSign)
 
 const playerScoreCount = document.querySelector('#playerScoreCount')
 const computerScoreCount = document.querySelector('#computerScoreCount')
-
+const scoreInfo = document.querySelector('.score-info')
 

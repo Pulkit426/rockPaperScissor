@@ -35,6 +35,13 @@ body{
     color: lightsalmon;
 }
 
+.score-info{
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    padding: 10px;
+}
+
 .score-container{
     display: flex;
     justify-content: center;
