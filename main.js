@@ -1,3 +1,6 @@
+let playerCurrentScore = 0
+let computerCurrentScore = 0
+
 function getComputerChoice () {
     const choices = ["Rock", "Paper", "Scissors"]
     const randomIndex =  Math.floor(Math.random()*3) 
@@ -16,6 +19,8 @@ function playRound(playerSelection, computerSelection){
     (playerSelection=== "Rock" && computerSelection==="Scissors") || 
     (playerSelection==="Paper" && computerSelection==="Rock") ||
     (playerSelection==="Scissors" && computerSelection==="Paper")) {
+        playerCurrentScore+=1
+        playerScoreCount.textContent = playerCurrentScore
 
         console.log(`Player Wins !! ${playerSelection} beats ${computerSelection}`)
     }
@@ -25,6 +30,8 @@ function playRound(playerSelection, computerSelection){
     (computerSelection==="Paper" && playerSelection==="Rock") ||
     (computerSelection==="Scissors" && playerSelection==="Paper") 
     ){
+        computerCurrentScore+=1
+        computerScoreCount.textContent = computerCurrentScore
         console.log(`Computer Wins !! ${computerSelection} beats ${playerSelection}`)
     }
 
@@ -51,3 +58,8 @@ buttons.forEach(button => button.addEventListener('click', () => playRound(`${bu
 const playerSign = document.querySelector('#playerSign')
 const computerSign = document.querySelector('#computerSign')
 console.log(playerSign, computerSign)
+
+const playerScoreCount = document.querySelector('#playerScoreCount')
+const computerScoreCount = document.querySelector('#computerScoreCount')
+
+
