@@ -44,7 +44,14 @@ function playRound(playerSelection, computerSelection){
         console.log("It's a Tie")
 
     }
-    
+
+    if((playerCurrentScore===5) || (computerCurrentScore===5)){
+        const winner = playerCurrentScore > computerCurrentScore ? "You" : "Computer"
+        setTimeout(() => {
+            alert(`Game Over !! ${winner} won `)
+            resetGame()
+        }, 500)
+    }
 }
 
 function getSign(choice) {
@@ -60,6 +67,16 @@ function getSign(choice) {
     }
 
 }
+
+function resetGame(){
+playerSign.textContent = "?"
+computerSign.textContent ="?"
+playerScoreCount.textContent = "0"
+computerScoreCount.textContent ="0"
+playerCurrentScore =0
+computerCurrentScore =0
+}
+
 const buttons = document.querySelectorAll('div>button')
 buttons.forEach(button => button.addEventListener('click', () => playRound(`${button.className}`, getComputerChoice())))
 
@@ -70,4 +87,5 @@ console.log(playerSign, computerSign)
 const playerScoreCount = document.querySelector('#playerScoreCount')
 const computerScoreCount = document.querySelector('#computerScoreCount')
 const scoreInfo = document.querySelector('.score-info')
+const winnerInfo = document.querySelector('.winner-info')
 
